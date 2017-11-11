@@ -43,27 +43,27 @@ function daBears(){
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -82,8 +82,16 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+function Vehicle() {
+  this.gasRemaining = 100;
+}
+Vehicle.prototype.drive = function() { this.gasRemaining -= 25; };
 
-
+const charger = new Vehicle();
+const mustang = new Vehicle();
+charger.drive();
+mustang.drive();
+mustang.drive();
 
 
 
@@ -108,6 +116,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 
 // CODE HERE...
+String.prototype.grammarPolice = function(string) {
+  console.log(this)
+  string = this.toLowerCase();
+  let words = string.split(' ');
+  let newWords = words.map((word, i) => {
+    word = word.split('');
+    word[0] = word[0].toUpperCase();
+    word = word.join('')
+    return word;
+  })
+  // string[0] = string[0].toLowerCase();
+  return newWords.join(' ');
+}
+
+
 
 
 
@@ -126,6 +149,13 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
+function valueType(param1, param2) {
+  return (
+    param1 === param2 ? "Exactly the same" 
+    : param1 == param2 ? "Same value, different types"
+    : "Different values"
+  );
+}
 
 
 
@@ -141,3 +171,7 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 var theAnswer = "Unknown";
 
 // CODE HERE...
+
+function promiseCatcher(prom) {
+  prom.then(res => { theAnswer = res });
+}
